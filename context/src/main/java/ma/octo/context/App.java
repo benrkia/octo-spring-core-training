@@ -14,6 +14,10 @@ public class App {
     greetingService.greet("Octo");
     System.out.println(topicRepository.getCurrentTopic());
 
+    assert greetingService == context.getBean("greeting", GreetingService.class);
+
+    context.refresh(); // This will invoke beans' destroy-method
+
   }
 
 }

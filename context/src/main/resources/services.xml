@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="greetingService" class="ma.octo.context.services.GreetingService" />
+    <bean id="greetingService" name="greeting" class="ma.octo.context.services.GreetingService" lazy-init="true" init-method="init"
+          destroy-method="destroy" primary="true" />
 
 </beans>
