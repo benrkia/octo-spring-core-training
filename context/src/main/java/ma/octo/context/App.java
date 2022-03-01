@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
   public static void main(String[] args) {
-    final var context = new ClassPathXmlApplicationContext("services.xml", "repositories.xml");
+    final var context = new ClassPathXmlApplicationContext("context.xml");
 
     final var greetingService = context.getBean("greetingService", GreetingService.class);
     final var topicRepository = context.getBean("topicRepository", TopicRepository.class);
