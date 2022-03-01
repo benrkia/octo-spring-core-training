@@ -27,5 +27,8 @@
         </dependency>
     </dependencies>
 
+    <modules>
+        <module>context</module>
+    </modules>
 
 </project>
