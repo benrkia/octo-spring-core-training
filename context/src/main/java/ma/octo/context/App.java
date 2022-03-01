@@ -18,6 +18,8 @@ public class App {
 
     context.refresh(); // This will invoke beans' destroy-method
 
+   assert context.getBean("topicRepository", TopicRepository.class) == context.getBean("topicRepository", TopicRepository.class);
+
   }
 
 }
