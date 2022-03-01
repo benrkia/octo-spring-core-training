@@ -7,4 +7,14 @@
     <import resource="services.xml" />
     <import resource="repositories.xml" />
 
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread">
+                    <bean class="ma.octo.context.support.ThreadScope" />
+                </entry>
+            </map>
+        </property>
+    </bean>
+
 </beans>

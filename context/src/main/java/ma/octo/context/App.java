@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
   public static void main(String[] args) {
     final var context = new ClassPathXmlApplicationContext("context.xml");
+    context.registerShutdownHook();
 
     final var greetingService = context.getBean("greetingService", GreetingService.class);
     final var topicRepository = context.getBean("topicRepository", TopicRepository.class);
@@ -15,10 +16,15 @@ public class App {
     System.out.println(topicRepository.getCurrentTopic());
 
     assert greetingService == context.getBean("greeting", GreetingService.class);
+    assert topicRepository == context.getBean("topicRepository", TopicRepository.class);
 
-    context.refresh(); // This will invoke beans' destroy-method
+   new Thread(() -> {
+     System.out.println(context.getBean("topicRepository", TopicRepository.class));
+   }).start();
 
-   assert context.getBean("topicRepository", TopicRepository.class) == context.getBean("topicRepository", TopicRepository.class);
+    new Thread(() -> {
+      System.out.println(context.getBean("topicRepository", TopicRepository.class));
+    }).start();
 
   }
 
