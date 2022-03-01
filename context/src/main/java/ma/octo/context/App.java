@@ -1,12 +1,15 @@
 package ma.octo.context;
 
+import ma.octo.context.config.AppConfig;
 import ma.octo.context.repositories.TopicRepository;
 import ma.octo.context.services.GreetingService;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.SimpleThreadScope;
 
 public class App {
   public static void main(String[] args) {
-    final var context = new ClassPathXmlApplicationContext("context.xml");
+    final var context = new AnnotationConfigApplicationContext(AppConfig.class);
+    context.getBeanFactory().registerScope("thread", new SimpleThreadScope());
     context.registerShutdownHook();
 
     final var greetingService = context.getBean("greetingService", GreetingService.class);
