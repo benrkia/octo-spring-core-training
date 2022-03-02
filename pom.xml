@@ -27,5 +27,8 @@
         </dependency>
     </dependencies>
 
+    <modules>
+        <module>environment-abstraction</module>
+    </modules>
 
 </project>
