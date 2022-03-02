@@ -9,7 +9,7 @@ public interface LanguageService {
 
   Optional<Language> getLanguageById(String id);
 
-  Optional<Language> getLanguageByExtension(String id);
+  Optional<Language> getLanguageByExtension(String extension);
 
   List<Language> findAllLanguages();
 }
