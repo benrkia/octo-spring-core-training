@@ -27,5 +27,9 @@
         </dependency>
     </dependencies>
 
+    <modules>
+        <module>aop</module>
+    </modules>
+
 
 </project>
