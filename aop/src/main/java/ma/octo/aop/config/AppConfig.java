@@ -4,6 +4,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
 @Configuration
+@EnableAspectJAutoProxy
 @ComponentScan(value = "ma.octo",
     excludeFilters = @Filter(type = FilterType.REGEX, pattern = "ma.octo.aop.entity.*"))
 @PropertySource("classpath:application.properties")
