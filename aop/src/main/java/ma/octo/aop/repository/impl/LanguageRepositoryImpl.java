@@ -26,6 +26,11 @@ public class LanguageRepositoryImpl implements LanguageRepository {
 
   @Override
   public Optional<Language> findByExtension(final String extension) {
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     return LANGUAGES.stream()
         .filter(languageExtensionPredicate(extension))
         .findAny();
@@ -33,6 +38,11 @@ public class LanguageRepositoryImpl implements LanguageRepository {
 
   @Override
   public Optional<Language> findById(final String id) {
+    try {
+      Thread.sleep(2000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     return LANGUAGES.stream()
         .filter(languageIdPredicate(id))
         .findAny();
