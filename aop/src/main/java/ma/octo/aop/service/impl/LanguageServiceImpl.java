@@ -3,6 +3,7 @@ package ma.octo.aop.service.impl;
 import ma.octo.aop.entity.Language;
 import ma.octo.aop.repository.LanguageRepository;
 import ma.octo.aop.service.LanguageService;
+import ma.octo.aop.util.LRU;
 import ma.octo.aop.util.Logger;
 import ma.octo.aop.util.impl.LoggerImpl;
 import org.springframework.core.env.Environment;
@@ -23,6 +24,7 @@ public class LanguageServiceImpl implements LanguageService {
     this.logger = new LoggerImpl(LanguageServiceImpl.class, environment);
   }
 
+  @LRU
   @Override
   public Optional<Language> getLanguageById(final String id) {
     return languageRepository.findById(id);
