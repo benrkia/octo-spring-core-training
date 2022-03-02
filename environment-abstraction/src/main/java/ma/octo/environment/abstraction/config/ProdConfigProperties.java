@@ -1,9 +1,7 @@
 package ma.octo.environment.abstraction.config;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
+import ma.octo.environment.abstraction.config.annotation.Production;
 
-@Profile("prod")
-@PropertySource("classpath:application-prod.properties")
+@Production
 public class ProdConfigProperties {
 }
